@@ -52,9 +52,46 @@ También puedes usar la tarea integrada de VS Code:
 
 1. `Ctrl + Shift + P`
 2. Ejecuta `Tasks: Run Task`
-3. Selecciona `Run dev server`
+3. Selecciona `Start project (install + dev)`
 
-Esta tarea ejecuta `npm install` y luego `npm run dev` automáticamente.
+Esta tarea ejecuta `npm run start:dev` (instala dependencias y luego levanta Vite).
 
 ## Mensaje listo para enviar a cliente
 Puedes copiar el texto de `QUICK_MESSAGE_CLIENT.md`.
+
+
+## Nota importante para PowerShell (tu error)
+`Run dev server` **no es un comando de terminal**. Es el nombre de una tarea de VS Code.
+
+Por eso te salió:
+- `Run: The term 'Run' is not recognized...`
+
+### Correcto
+- Opción A (terminal):
+  ```bash
+  npm run start:dev
+  ```
+- Opción B (VS Code):
+  `Ctrl + Shift + P` → `Tasks: Run Task` → `Start project (install + dev)`
+
+## Si `npm install` falla en Windows
+Prueba en este orden:
+
+1. Ver versiones:
+   ```bash
+   node -v
+   npm -v
+   ```
+2. Limpiar cache:
+   ```bash
+   npm cache clean --force
+   ```
+3. Forzar registro público:
+   ```bash
+   npm config set registry https://registry.npmjs.org/
+   ```
+4. Reintentar:
+   ```bash
+   npm install
+   npm run dev
+   ```
