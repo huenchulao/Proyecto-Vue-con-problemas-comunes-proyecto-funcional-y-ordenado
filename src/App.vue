@@ -1,8 +1,14 @@
 <template>
   <div class="app-shell">
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <component :is="Component || HomeView" />
+    </router-view>
   </div>
 </template>
+
+<script setup>
+import HomeView from './views/HomeView.vue'
+</script>
 
 <style scoped>
 .app-shell {

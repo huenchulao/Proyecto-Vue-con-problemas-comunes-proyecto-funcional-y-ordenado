@@ -95,3 +95,15 @@ Prueba en este orden:
    npm install
    npm run dev
    ```
+
+
+## Correcciones aplicadas por error de arranque
+- Se añadieron scripts estándar en `package.json` (`start` y `serve`) además de `dev`/`build`/`preview`.
+- Se configuró Vite con `--host` para evitar problemas de visualización/acceso en algunos entornos.
+- `App.vue` ahora tiene fallback para mostrar `HomeView` aunque la ruta no monte por algún problema externo.
+
+### Arranque recomendado
+```bash
+npm install
+npm run start
+```

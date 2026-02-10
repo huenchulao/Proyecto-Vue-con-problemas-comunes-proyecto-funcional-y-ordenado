@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
+    "start": "npm run dev",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
+    "serve": "npm run preview",
     "start:dev": "npm install && npm run dev"
   },
   "dependencies": {
